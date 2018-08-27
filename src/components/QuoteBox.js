@@ -1,9 +1,9 @@
 import React from 'react';
 
-const QuoteBox = () => (
+const QuoteBox = (props) => (
   <div>
-    <p>Quote</p>
-    <p>Person</p>
+    <p>{props.quote}</p>
+    <p>{props.author}</p>
   </div>
 );
 

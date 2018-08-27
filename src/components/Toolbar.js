@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Toolbar = () => (
+const Toolbar = (props) => (
   <div>
-    <button>Generate</button>
+    <button onClick={props.handleFetchQuote}>Generate</button>
     <button>Facebook</button>
     <button>Twitter</button>
   </div>
