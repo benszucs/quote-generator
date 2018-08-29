@@ -10,6 +10,7 @@ const QuoteWidget = (props) => (
     />
     <Toolbar
       handleFetchQuote={props.handleFetchQuote}
+      tweet={props.tweet}
     />
   </div>
 );
