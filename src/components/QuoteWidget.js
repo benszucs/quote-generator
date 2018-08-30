@@ -7,10 +7,12 @@ const QuoteWidget = (props) => (
     <QuoteBox
       quote={props.quote}
       author={props.author}
+      randomColor={props.randomColor}
     />
     <Toolbar
       handleFetchQuote={props.handleFetchQuote}
       tweet={props.tweet}
+      randomColor={props.randomColor}
     />
   </div>
 );

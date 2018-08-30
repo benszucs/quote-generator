@@ -6,14 +6,18 @@ html {
 body {
   font-family: Helvetica, Arial, sans-serif;
   font-size: $m-size;
+  font-weight: 550;
   height: 100%;
 }
 
 a {
   cursor: pointer;
-  color: black;
   transition-duration: .25s;
+  padding: $xs-size;
+  border-radius: 5px;
+  // color: $main-color;
+  font-size: $m-size;
   &:hover {
-    color: white;
+    transform: scale(1.2);
   }
 }

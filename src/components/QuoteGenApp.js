@@ -16,17 +16,27 @@ export default class QuoteGenApp extends React.Component {
     url: 'https://talaikis.com/api/quotes/random/',
     quote: 'Hello World',
     author: 'Author',
-    tweetLink: 'https://twitter.com/intent/tweet?hashtags=quotes&text='
+    tweetLink: 'https://twitter.com/intent/tweet?hashtags=quotes&text=',
+    randomColor: undefined,
+    randomBackground: undefined
   };
   handleFetchQuote = () => {
     fetch(this.state.url).then(results => {
       return results.json();
     }).then(data => {
-      const tweet = this.state.tweetLink + data.quote
+      const tweet = this.state.tweetLink + data.quote + " - " + data.author;
+      const colors = ['#3ea5ce', '#99c712', '#ffba00', '#E53B3A'];
+      let randomColor = colors[Math.floor(Math.random() * 4)];
       this.setState({
         quote: data.quote,
         author: data.author,
-        tweet
+        tweet,
+        randomColor: {
+          color: randomColor
+        },
+        randomBackground: {
+          background: randomColor
+        }
       });
     })
   };
@@ -36,13 +46,14 @@ export default class QuoteGenApp extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <div className="quote-app">
+        <div className="quote-app" style={this.state.randomBackground}>
           <div className="quote-app__box">
             <QuoteWidget
               quote={this.state.quote}
               author={this.state.author}
               handleFetchQuote={this.handleFetchQuote}
               tweet={this.state.tweet}
+              randomColor={this.state.randomColor}
             />
           </div>
         </div>
